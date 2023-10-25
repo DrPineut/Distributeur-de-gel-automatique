@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Utilisation de Gel Hydroalcoolique</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Utilisation de Gel Hydroalcoolique</h1>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="data-row">
+                <p class="data-label">Date:</p>
+                <p class="data-value" id="date">01/01/2023</p>
+            </div>
+            <div class="data-row">
+                <p class="data-label">Gel utilisé :</p>
+                <p class="data-value" id="gelUtilise">0 ml</p>
+            </div>
+            <div class="data-row">
+                <p class="data-label">Mains détectées :</p>
+                <p class="data-value" id="mainsDetectees">0</p>
+            </div>
+          <button class="button" id="updateButton">Mettre à jour</button>
+        </div>
+      
+        <div class="chart">
+          <canvas id="usageChart"></canvas>
+        </div>
+
+        <div class="pourcentage">
+            <p id="pourcentage-text">0.00%</p>
+        </div>
+
+      <div class="history">
+        <h2>Historique des Données</h2>
+        <table id="dataHistory">
+          <thread>
+            <tr>
+              <th>Date</th>
+              <th>Gel Utilisé (ml)</th>
+              <th>Mains Détectées</th>
+            </tr>
+          </thread>
+          <tbody id="dataHistoryBody">
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Maxence Alexis Denys. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+    "CONFIG_FILE": "config.json",
+    "API_URL": "https://votre_url_du_serveur_flask/obtenir_donnees_utilisation",
+    "CSV_FILE": "donnees_utilisation.csv",
+    "MAX_RETRIES": 3,
+    "GEL_AMOUNT": 3,
+    "ALERT_PHONE_NUMBER": "+..0123456789" 
+}

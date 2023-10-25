@@ -1,0 +1,47 @@
+Les trois programmes (le programme Python pour le Raspberry Pi, le serveur Flask, et la page HTML avec JavaScript) sont conçus pour fonctionner ensemble en tant que système complet pour la distribution de gel hydroalcoolique et la visualisation en temps réel des données d'utilisation. Voici comment ils interagissent : 
+
+
+
+Programme Python sur le Raspberry Pi : 
+
+Ce programme est exécuté sur le Raspberry Pi. 
+
+Il utilise un capteur infrarouge pour détecter la présence de mains à proximité. 
+
+Lorsqu'il détecte des mains, il active un servo-moteur pour distribuer une quantité de gel hydroalcoolique. 
+
+Ensuite, il envoie les données d'utilisation (la quantité de gel utilisée et le nombre de mains détectées) au serveur Flask via une requête POST. 
+
+Le programme Python est en boucle continue pour détecter les mains et envoyer les données au serveur Flask. 
+
+ 
+
+Serveur FLASK : 
+
+Ce serveur Web est également exécuté sur le Raspberry Pi. 
+
+Il utilise le framework Flask pour créer une application Web. 
+
+Il expose deux routes HTTP : 
+
+/obtenir_donnees_utilisation(GET) : Cette route renvoie les données d'utilisation actuelles (gel utilisé et mains détectées) au format JSON en réponse à une requête GET. 
+
+/mettre_a_jour_donnees(POST) : Cette route reçoit les données d'utilisation envoyées par le Raspberry Pi (quantité de gel utilisée et nombre de mains détectées), les mises à jour, puis renvoie un message de confirmation. 
+
+Le serveur Flask tourne en permanence pour traiter les requêtes entrantes du Raspberry Pi. 
+
+ 
+
+Page HTML avec JavaScript : 
+
+Cette page HTML est affichée dans un navigateur Web (peut être sur n'importe quel appareil connecté au même réseau que le Raspberry Pi). 
+
+Elle utilise la bibliothèque JavaScript Chart.js pour créer un graphique en temps réel. 
+
+Au chargement de la page, elle envoie une requête GET à la route /obtenir_donnees_utilisation du serveur Flask pour obtenir les données d'utilisation initiales. 
+
+Elle utilise setInterval pour régulièrement (toutes les 5 secondes) envoyer une requête GET au serveur Flask pour obtenir les données mises à jour. 
+
+Une fois les données reçues, elle met à jour l'affichage de la quantité de gel utilisée, du nombre de mains détectées et du graphique en temps réel. 
+
+En résumé, le Raspberry Pi exécute le programme Python pour collecter et envoyer les données d'utilisation au serveur Flask. Le serveur Flask reçoit et stocke ces données, puis les expose via des routes HTTP. La page HTML avec JavaScript affiche ces données en temps réel et les mises à jour régulièrement en interrogeant le serveur Flask. 
